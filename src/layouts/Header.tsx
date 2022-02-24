@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Navbar,
   NavItem,
@@ -5,43 +6,31 @@ import {
   NavbarBrand,
   NavbarToggler,
   Nav,
-  NavbarText,
   Collapse,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <Navbar color="light" expand="md" light>
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
-        <NavbarToggler onClick={function noRefCheck() {}} />
-        <Collapse navbar>
+      <Navbar color="light" expand="sm" light>
+        <NavbarBrand href="/">Nelsons page</NavbarBrand>
+        <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
+        <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/">About Nelson</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <NavLink href="/activation">Activation</NavLink>
             </NavItem>
-            <UncontrolledDropdown inNavbar nav>
-              <DropdownToggle caret nav>
-                Options
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/care">Care</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/checklist">Checklist</NavLink>
+            </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>
