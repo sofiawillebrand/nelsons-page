@@ -13,7 +13,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <Navbar color="light" expand="sm" light>
+      <Navbar
+        expand="sm"
+        light
+        style={{ backgroundColor: "#e3f2fd" }}
+      >
         <NavbarBrand href="/">Nelsons page</NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
         <Collapse isOpen={isOpen} navbar>
